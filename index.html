@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPSC Study Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <h2>UPSC Portal</h2>
+    <ul>
+      <li onclick="showSection('notes')">Notes</li>
+      <li onclick="showSection('youtube')">YouTube Lectures</li>
+      <li onclick="showSection('assignments')">Assignments</li>
+      <li onclick="showSection('ai')">AI Chat</li>
+      <li onclick="showSection('mindmaps')">Flowcharts & Mindmaps</li>
+      <li onclick="showSection('maps')">Map Studies</li>
+      <li onclick="showSection('syllabus')">Syllabus Sections</li>
+      <li onclick="logout()">Logout</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main">
+    <!-- Login Form -->
+    <div id="loginDiv">
+      <h2>Login</h2>
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Sections -->
+    <div id="contentDiv" style="display:none;">
+      <div id="notes" class="section">
+        <h2>Notes Upload / Download</h2>
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()">Upload</button>
+        <ul id="notesList"></ul>
+      </div>
+
+      <div id="youtube" class="section" style="display:none;">
+        <h2>YouTube Lectures</h2>
+        <input type="text" id="ytSearch" placeholder="Search YouTube">
+        <button onclick="searchYouTube()">Search</button>
+        <div id="ytResults"></div>
+      </div>
+
+      <div id="assignments" class="section" style="display:none;">
+        <h2>Assignments</h2>
+        <p>Coming soon...</p>
+      </div>
+
+      <div id="ai" class="section" style="display:none;">
+        <h2>AI Chat</h2>
+        <textarea id="aiInput" placeholder="Ask your question..."></textarea>
+        <button onclick="askAI()">Send</button>
+        <div id="aiResponse"></div>
+      </div>
+
+      <div id="mindmaps" class="section" style="display:none;">
+        <h2>Flowcharts & Mindmaps</h2>
+        <p>Placeholder for mindmaps (Mermaid.js / Draw.io embed)</p>
+      </div>
+
+      <div id="maps" class="section" style="display:none;">
+        <h2>Map Studies</h2>
+        <p>Placeholder for Google Earth / Bhuvan embeds</p>
+      </div>
+
+      <div id="syllabus" class="section" style="display:none;">
+        <h2>Syllabus Sections</h2>
+        <p>POLITY / GK / Daily Affairs / History / Geography</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
